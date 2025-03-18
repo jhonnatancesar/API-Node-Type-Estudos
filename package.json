@@ -1,0 +1,23 @@
+{
+  "name": "typescript-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev ./src/index.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "@types/nodemon": "^1.19.6",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "ts-node-esm": "^0.0.6",
+    "typescript": "^5.8.2"
+  }
+}
