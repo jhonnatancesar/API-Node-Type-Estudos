@@ -1,5 +1,8 @@
+#Diretorios
 /node_modules
-yarn-error.log
 build/
+
+#Arquivos
+yarn-error.log
 .env
 yarn.lock
