@@ -12,6 +12,9 @@ cidadeRoutes.get('/cidades',
     cidadesController.getAll
 );
 
-cidadeRoutes.get('/cidade/:id', cidadesController.getById);
+cidadeRoutes.get('/cidade', cidadesController.getFilter);
+
+cidadeRoutes.put('/cidade/update-cep', cidadesController.updateByNome);
+cidadeRoutes.put('/cidade/update-nome', cidadesController.updateByCep);
 
 export {cidadeRoutes};

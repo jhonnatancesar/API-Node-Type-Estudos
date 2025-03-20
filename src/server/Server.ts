@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import '../shared/services/TranslationsYup';
 import express from 'express';
-import { cidadeRoutes } from '../routes';
+import { cidadeRoutes } from '../routes/CidadeRoutes';
 
 const server = express();
 
