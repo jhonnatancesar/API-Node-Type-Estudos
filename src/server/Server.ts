@@ -1,15 +1,15 @@
-<<<<<<< Updated upstream
-=======
 import 'dotenv/config';
 import '../shared/services/TranslationsYup';
->>>>>>> Stashed changes
 import express from 'express';
-
+import { cidadeRoutes } from '../routes';
 
 const server = express();
 
 server.get('/', (req, res) => {
     res.send('Ola, dev!'); 
 });
+
+server.use(express.json());
+server.use(cidadeRoutes);
 
 export {server};

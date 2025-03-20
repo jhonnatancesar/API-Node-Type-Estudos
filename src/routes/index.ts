@@ -1,21 +1,17 @@
 import { Router } from "express";
-
 import {cidadesController} from '../controllers';
-const router = Router();
 
-router.get('/', (req, res) => {
-    res.send('Ola!');
-});
+const cidadeRoutes = Router();
 
-router.post('/cidades', 
+cidadeRoutes.post('/cidade', 
     cidadesController.createValidantion, 
     cidadesController.create
 );
 
-router.get('/cidades',  
+cidadeRoutes.get('/cidades',  
     cidadesController.getAll
 );
 
-router.get('/cidade/:id', cidadesController.getById);
+cidadeRoutes.get('/cidade/:id', cidadesController.getById);
 
-export {router};
+export {cidadeRoutes};
