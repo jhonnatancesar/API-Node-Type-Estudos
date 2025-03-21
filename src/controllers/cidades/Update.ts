@@ -2,19 +2,24 @@ import { Request, Response } from "express";
 import { StatusCodes } from 'http-status-codes';
 import { ICidade, CidadeCep, bodyValidation } from "../../database/models/models";
 import { validationBody } from '../../shared/middleware/Validation';
+import { bodyValidationUpdateCep, bodyValidationUpdateNome } from "../../Validations";
+
+export const createValidantionFilterNome = validationBody(bodyValidationUpdateNome);
+export const createValidantionFilterCep = validationBody(bodyValidationUpdateCep);
 
 export const updateByNome = async (req: Request, res: Response) => {
     try {
-        const { nome, novoCep } = req.body;
+        const { cep, novoNome } = req.body;
 
         const resultado = await CidadeCep.findOneAndUpdate(
-            { nome },                // filtro de busca
-            { cep: novoCep },        // o que vai atualizar
+            { cep },                // filtro de busca
+            { nome: novoNome },        // o que vai atualizar
             { new: true }
         );
 
         if (!resultado) {
             res.status(StatusCodes.NOT_FOUND).json({ error: "Cidade não encontrada." });
+            return;
         }
 
         res.status(StatusCodes.OK).json(resultado);
@@ -25,16 +30,17 @@ export const updateByNome = async (req: Request, res: Response) => {
 
 export const updateByCep = async (req: Request, res: Response) => {
     try {
-        const { cep, novoNome } = req.body;
+        const { nome, novoCep } = req.body;
 
         const resultado = await CidadeCep.findOneAndUpdate(
-            { cep },                // busca pelo CEP
-            { nome: novoNome },     // atualiza o NOME
+            { nome },                // busca pelo CEP
+            { cep: novoCep },     // atualiza o NOME
             { new: true }
         );
 
         if (!resultado) {
             res.status(StatusCodes.NOT_FOUND).json({ error: "Cidade não encontrada." });
+            return;
         }
 
         res.status(StatusCodes.OK).json(resultado);
