@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { StatusCodes } from 'http-status-codes';
 import { ICidade, CidadeCep } from "../../database/models/models";
 import { validationBody } from "../../shared/middleware";
-import { bodyValidationQueryFilterNome,bodyValidationQueryFilterCep } from "../../Validations";
+import { bodyValidationQueryFilterNome,bodyValidationQueryFilterCep } from "../../validations";
 
 export const createValidantionFilterNome = validationBody(bodyValidationQueryFilterNome);
 

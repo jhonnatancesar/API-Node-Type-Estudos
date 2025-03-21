@@ -1,7 +1,7 @@
 import mongoose, { Schema, model } from "mongoose";
 import * as yup from 'yup';
 import { ICidade, IQueryUpdateCep, IQueryUpdateNome} from '../../interface/Interfaces';
-import {bodyValidation} from '../../Validations/index'
+import {bodyValidation} from '../../validations/index'
 export const db = mongoose;
 
 export const cidadeSchema = new Schema<ICidade>({
